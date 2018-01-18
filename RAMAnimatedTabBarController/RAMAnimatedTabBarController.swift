@@ -413,7 +413,13 @@ open class RAMAnimatedTabBarController: UITabBarController {
     viewContainer.addGestureRecognizer(tapGesture)
     
     // add constrains
-    viewContainer.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+    NSLayoutConstraint(item: viewContainer,
+                       attribute: .bottom,
+                       relatedBy: .equal,
+                       toItem: bottomLayoutGuide,
+                       attribute: .top,
+                       multiplier: 1,
+                       constant: 0).isActive = true
     
     let constH = NSLayoutConstraint(item: viewContainer,
                                     attribute: NSLayoutAttribute.height,
